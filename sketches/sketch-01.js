@@ -6,7 +6,7 @@ const settings = {
 
 const sketch = () => {
   return ({ context, width, height }) => {
-    context.fillStyle = 'white';
+    context.fillStyle = 'black';
     context.fillRect(0, 0, width, height);
     context.lineWidth = width * 0.01;
     const w = width * 0.10;
@@ -23,6 +23,7 @@ const sketch = () => {
             x = ix + (w + gap) * i;
             y = iy + (h + gap) * j;
 
+            context.strokeStyle = 'white';
             context.beginPath();
             context.rect(x, y, w, h);
             context.stroke();
