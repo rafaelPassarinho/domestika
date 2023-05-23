@@ -24,11 +24,12 @@ const sketch = () => {
     const cy = height * 0.5;
 
     const w = width * 0.01;
-    const h = height * 0.1;
+    const h = height * 0.2;
     let x, y;
 
-    const num = 40;
+    const num = 100;
     const radius = width * 0.3;
+    const colors = ['cyan', 'magenta', 'yellow', 'red', 'blue', 'green'];
 
     for (let i = 0; i < num; i++){
       const slice = math.degToRad(360 / num);
@@ -49,10 +50,12 @@ const sketch = () => {
       context.save();
       context.translate(cx, cy);
       context.rotate(-angle);
+      context.scale(random.range(0.1, 2), random.range(0.1, 0.5));
 
       context.lineWidth = random.range(5, 20);
 
       context.beginPath();
+      context.strokeStyle = colors[i % colors.length];
       context.arc(0, 0, radius * random.range(0.7, 1.3), slice * random.range(1, -0.5), slice * random.range(0.5, 5));
       context.stroke();
       context.restore();
